@@ -155,12 +155,20 @@ const renderSinglePlayer = async (playerId) => {
     teamName = "Ruff";
   };
 
+  let status = "None";
+  if(player.status === "field"){
+    status = "Field";
+  }else if(player.status === "bench"){
+    status = "Bench";
+  };
+
 	card.innerHTML = `
       <img src="${player.imageUrl}" alt="${player.name}">
       <h1>Name: ${player.name}</h1>
       <p>Player ID: ${player.id}</p>
       <p>Breed: ${player.breed}</p>
       <p>Team: ${teamName}</p>
+      <p>Status: ${status}</p>
       <button class="getDetails" id="goBack"> Back to All Players </button>
     `;
 	main.replaceChildren(card);
@@ -178,6 +186,7 @@ const renderSinglePlayer = async (playerId) => {
  */
 const renderNewPlayerForm = async (newPlayer) => {
 	form.innerHTML = `
+    <h1 id="title">Welcome to the 2025 Puppy Bowl!</h1>
     <p>Add a new player to the roster:</p>
     <input id="playerName" placeholder="Player Name" name="playerName" type="text" required/>
     <input id="playerBreed" placeholder="Player Breed" name="playerBreed" type="text" required/>
