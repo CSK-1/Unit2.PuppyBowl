@@ -3,3 +3,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+html {
+  background-color: #d3ebff;
+}
+
+.card {
+  display: grid;
+}
